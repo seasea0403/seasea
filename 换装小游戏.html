@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dress Up Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("背景3.jpg");
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #character {
+            width: 400px;
+            height: 900px;
+            background-image: url("身体.png");
+            background-size: cover;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .pants {
+            position: absolute;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        .clothes {
+            position: absolute;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+
+        .hair {
+            position: absolute;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 10px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dress Up Game</h1>
+    <div id="character">
+        <div id="pants" class="pants"></div>
+        <div id="clothes" class="clothes"></div>
+        <div id="hair" class="hair"></div>
+
+    </div>
+    <br>
+    <button onclick="changePants()">Change Pants Style</button>
+    <button onclick="changeClothes()">Change Clothes Style</button>
+    <button onclick="changeHair()">Change Hair Style</button>
+
+
+    <script>
+        var hairStyles = ["发1.png", "发2.png", "发3.png", "发4.png", "发5.png", "发6.png", "发7.png", "发8.png", "发9.png"];
+        var clothesStyles = ["上衣1.png", "上衣2.png", "上衣3.png", "上衣4.png", "上衣5.png", "上衣6.png"];
+        var pantsStyles = ["下衣1.png", "下衣2.png", "下衣3.png"];
+
+
+
+        var currentHairStyle = 0;
+        var currentClothesStyle = 0;
+        var currentPantsStyle = 0;
+
+
+        function changeHair() {
+            currentHairStyle = (currentHairStyle + 1) % hairStyles.length;
+            updateHairStyle();
+        }
+
+        function changeClothes() {
+            currentClothesStyle = (currentClothesStyle + 1) % clothesStyles.length;
+            updateClothesStyle();
+        }
+
+        function changePants() {
+            currentPantsStyle = (currentPantsStyle + 1) % pantsStyles.length;
+            updatePantsStyle();
+        }
+
+
+
+        function updateHairStyle() {
+            var hairElement = document.getElementById("hair");
+            hairElement.style.backgroundImage = "url('" + hairStyles[currentHairStyle] + "')";
+            switch (currentHairStyle) {
+                case 0:
+                    hairElement.style.width = "365px";
+                    hairElement.style.height = "365px";
+                    hairElement.style.top = "1px";
+                    hairElement.style.left = "93px";
+                    break;
+                case 1:
+                    hairElement.style.width = "400px";
+                    hairElement.style.height = "400px";
+                    hairElement.style.top = "1px";
+                    hairElement.style.left = "100px";
+                    break;
+                case 2:
+                    hairElement.style.width = "200px";
+                    hairElement.style.height = "200x";
+                    hairElement.style.top = "-10px";
+                    hairElement.style.left = "100px";
+                    break;
+                case 3:
+                    hairElement.style.width = "160px";
+                    hairElement.style.height = "160x";
+                    hairElement.style.top = "-37px";
+                    hairElement.style.left = "112px";
+                    break;
+                case 4:
+                    hairElement.style.width = "330px";
+                    hairElement.style.height = "330px";
+                    hairElement.style.top = "0px";
+                    hairElement.style.left = "98px";
+                    break
+                case 5:
+                    hairElement.style.width = "330px";
+                    hairElement.style.height = "330px";
+                    hairElement.style.top = "1px";
+                    hairElement.style.left = "113px";
+                    break;
+                case 6:
+                    hairElement.style.width = "380px";
+                    hairElement.style.height = "380px";
+                    hairElement.style.top = "9px";
+                    hairElement.style.left = "118px";
+                    break;
+                case 7:
+                    hairElement.style.width = "200px";
+                    hairElement.style.height = "200px";
+                    hairElement.style.top = "1px";
+                    hairElement.style.left = "97px";
+                    break;
+                case 8:
+                    hairElement.style.width = "250px";
+                    hairElement.style.height = "250px";
+                    hairElement.style.top = "1px";
+                    hairElement.style.left = "95px";
+                    break;
+            }
+        }
+
+        function updateClothesStyle() {
+            var clothesElement = document.getElementById("clothes");
+            clothesElement.style.backgroundImage = "url('" + clothesStyles[currentClothesStyle] + "')";
+            switch (currentClothesStyle) {
+                case 0:
+                    clothesElement.style.width = "400px";
+                    clothesElement.style.height = "400px";
+                    clothesElement.style.top = "250px";
+                    clothesElement.style.left = "50px";
+                    break;
+                case 1:
+                    clothesElement.style.width = "230px";
+                    clothesElement.style.height = "230px";
+                    clothesElement.style.top = "255px";
+                    clothesElement.style.left = "99px";
+                    break;
+                case 2:
+                    clothesElement.style.width = "365px";
+                    clothesElement.style.height = "365px";
+                    clothesElement.style.top = "240px";
+                    clothesElement.style.left = "40px";
+                    break;
+                case 3:
+                    clothesElement.style.width = "350px";
+                    clothesElement.style.height = "350px";
+                    clothesElement.style.top = "255px";
+                    clothesElement.style.left = "82px";
+                    break;
+                case 4:
+                    clothesElement.style.width = "350px";
+                    clothesElement.style.height = "350px";
+                    clothesElement.style.top = "255px";
+                    clothesElement.style.left = "80px";
+                    break;
+
+            }
+        }
+
+        function updatePantsStyle() {
+            var pantsElement = document.getElementById("pants");
+            pantsElement.style.backgroundImage = "url('" + pantsStyles[currentPantsStyle] + "')";
+            switch (currentPantsStyle) {
+                case 0:
+                    pantsElement.style.width = "280px";
+                    pantsElement.style.height = "280px";
+                    pantsElement.style.top = "545px";
+                    pantsElement.style.left = "63px";
+                    break;
+                case 1:
+                    pantsElement.style.width = "350px";
+                    pantsElement.style.height = "350px";
+                    pantsElement.style.top = "545px";
+                    pantsElement.style.left = "51px";
+                    break;
+                case 2:
+                    pantsElement.style.width = "280px";
+                    pantsElement.style.height = "280px";
+                    pantsElement.style.top = "545px";
+                    pantsElement.style.left = "65px";
+                    break;
+
+            }
+        }
+
+
+        // 初始设置
+        updateHairStyle();
+        updateClothesStyle();
+        updatePantsStyle();
+
+    </script>
+</body>
+</html>
